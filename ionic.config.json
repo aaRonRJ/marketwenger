@@ -1,0 +1,7 @@
+{
+  "name": "marketwenger",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
