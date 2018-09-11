@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 
 // Components
 import { AddPlayerPage } from './add-player/add-player';
@@ -15,7 +15,8 @@ export class HomePage {
   players: any[] = [];
   
   constructor(public navCtrl: NavController,
-              private databaseService: DatabaseService) {
+              private databaseService: DatabaseService,
+              private modalCtrl: ModalController) {
     this.databaseService.players()
     .subscribe((data) => {
       this.players = data;
@@ -30,6 +31,6 @@ export class HomePage {
   }
 
   addPlayer(): void {
-    this.navCtrl.push(AddPlayerPage);
+    this.modalCtrl.create(AddPlayerPage).present();
   }
 }

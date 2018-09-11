@@ -1,3 +1,14 @@
 page-home {
+    .balance {
+        :first-child {
+            font-style: italic;
+            color: #c9c9c9;
+            text-decoration: underline;
+        }
 
+        :nth-child(2) {
+            color: #000000;
+            font-weight: bold;
+        }
+    }
 }

@@ -9,8 +9,11 @@
 <ion-content>
   <ion-list>
       <button ion-item *ngFor="let player of players">
-          <h2>{{ player.name }}</h2>
-          <span>{{ player.balance }}</span>
+        <h1>{{ player.name }}</h1>
+        <p class="balance">
+            <span>Saldo:</span>
+            <span>{{ player.balance | number: fractionSize }}€</span>
+        </p>
       </button>
   </ion-list>
 
