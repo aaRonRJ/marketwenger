@@ -5,6 +5,8 @@ import { NavController } from 'ionic-angular';
 import { AddPlayerPage } from './add-player/add-player';
 import { OperationsPage } from '../operations/operations';
 
+import { DatabaseService } from '../../services/database.service';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -12,7 +14,13 @@ import { OperationsPage } from '../operations/operations';
 export class HomePage {
   players: any[] = [];
   
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController,
+              private databaseService: DatabaseService) {
+    this.databaseService.players()
+    .subscribe((data) => {
+      this.players = data;
+    })
+  }
 
   ionViewWillEnter() {
   }
