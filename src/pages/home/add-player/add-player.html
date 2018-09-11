@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>
+            Nuevo jugador
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="registerPlayerForm">
+        <ion-item>
+            <ion-label floating>Nombre</ion-label>
+            <ion-input formControlName="name" type="text"></ion-input>
+            <div *ngIf="!registerPlayerForm.controls['name'].valid && registerPlayerForm.controls['name'].dirty" class="validator-error">
+                El nombre del jugador no puede estar vacío.
+            </div>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Saldo</ion-label>
+            <ion-input formControlName="balance" type="text"></ion-input>
+        </ion-item>
+
+        <div padding>
+            <button [disabled]="!registerPlayerForm.valid" ion-button color="primary" 
+            block (click)="save()">Guardar</button>
+        </div>
+    </form>
+</ion-content>
